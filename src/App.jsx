@@ -1,17 +1,16 @@
-
 import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
   const [tweet, setTweet] = useState('')
-  const [posts, setPosts] = useState(() => {
+  const [posts, setPosts] = useState(function () {
     return JSON.parse(localStorage.getItem('tweets')) || []
   })
 
   const characterCount = tweet.length
   const isOverLimit = characterCount > 280
 
-  useEffect(() => {
+  useEffect(function () {
     localStorage.setItem('tweets', JSON.stringify(posts))
   }, [posts])
 
@@ -29,7 +28,9 @@ function App() {
   }
 
   function handleDelete(id) {
-    setPosts(posts.filter((post) => post.id !== id))
+    setPosts(posts.filter(function (post) {
+      return post.id !== id
+    }))
   }
 
   function handleClear() {
@@ -44,7 +45,9 @@ function App() {
       <div className="tweet-box">
         <textarea
           value={tweet}
-          onChange={(event) => setTweet(event.target.value)}
+          onChange={function (event) {
+            setTweet(event.target.value)
+          }}
           placeholder="What's happening?"
           className={isOverLimit ? 'textarea error' : 'textarea'}
         />
@@ -76,22 +79,26 @@ function App() {
         {posts.length === 0 ? (
           <p className="empty-message">No posts yet. Write your first tweet!</p>
         ) : (
-          posts.map((post) => (
-            <div className="post-card" key={post.id}>
-              <p className="post-text">{post.text}</p>
+          posts.map(function (post) {
+            return (
+              <div className="post-card" key={post.id}>
+                <p className="post-text">{post.text}</p>
 
-              <div className="post-footer">
-                <span>You Posted @ {post.timestamp}</span>
+                <div className="post-footer">
+                  <span>You Posted @ {post.timestamp}</span>
 
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDelete(post.id)}
-                >
-                  Delete
-                </button>
+                  <button
+                    className="delete-btn"
+                    onClick={function () {
+                      handleDelete(post.id)
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-          ))
+            )
+          })
         )}
       </div>
     </div>
