@@ -1,16 +1,62 @@
-# React + Vite
+# Tweet Character Validator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app that lets you write a tweet-style post, shows a live character count against the 280 character limit, and keeps a list of your posts saved in the browser.
 
-Currently, two official plugins are available:
+## Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<!-- Add your screenshot at screenshots/app.png, then this will display automatically -->
+![Tweet Character Validator screenshot](screenshots/app.png)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Live character counter (`0/280 characters`)
+- Textarea and counter turn red when you go over 280 characters
+- Post button is disabled when the tweet is empty or over the limit
+- Clear button to reset the text box
+- Posted tweets appear newest first, with a timestamp
+- Delete any post
+- Posts are saved in `localStorage`, so they stay after a refresh
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite
+- ESLint
+
+## Getting Started
+
+Prerequisites: Node.js and npm installed.
+
+```bash
+git clone https://github.com/Aloy17/Tweet-Character-Validator.git
+cd Tweet-Character-Validator
+npm install
+npm run dev
+```
+
+Then open the local URL printed in the terminal (usually http://localhost:5173).
+
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## How It Works
+
+- `src/App.jsx` holds all the logic: the tweet text is kept in state, and the character count is simply its length.
+- A tweet is over the limit when its length is greater than 280, which switches on the error styling and disables posting.
+- Posts are stored in state and synced to `localStorage` under the key `tweets` whenever they change.
+
+## Project Structure
+
+```
+src/
+  App.jsx      Main component (validator and posts list)
+  App.css      Component styles
+  index.css    Global styles
+  main.jsx     App entry point
+```
