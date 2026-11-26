@@ -2,10 +2,23 @@
 
 A small React app that lets you write a tweet-style post, shows a live character count against the 280 character limit, and keeps a list of your posts saved in the browser.
 
-## Screenshot
+## Screenshots
 
-<!-- Add your screenshot at screenshots/app.png, then this will display automatically -->
-![Tweet Character Validator screenshot](screenshots/app.png)
+### 1. The app on first load
+<!-- Add screenshots/01-initial.png -->
+![Initial view](screenshots/01-initial.png)
+
+### 2. Typing a tweet
+<!-- Add screenshots/02-typing.png -->
+![Typing in the text box](screenshots/02-typing.png)
+
+### 3. Posted tweet and the list of posts
+<!-- Add screenshots/03-posts.png -->
+![Posted tweets list](screenshots/03-posts.png)
+
+### 4. Going over the 280 character limit
+<!-- Add screenshots/04-over-limit.png -->
+![Over the character limit](screenshots/04-over-limit.png)
 
 ## Features
 
